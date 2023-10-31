@@ -2,22 +2,28 @@ package io.github.meo209.meoslib.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.meo209.meoslib.MeosLib;
-import net.minecraft.client.MinecraftClient;
+import io.github.meo209.meoslib.utils.TextureRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.ScreenHandlerProvider;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.apache.commons.compress.compressors.pack200.Pack200Utils;
 
-import javax.swing.plaf.PanelUI;
+public abstract class AdvancedHandledScreen<T extends ScreenHandler> extends HandledScreen<T> implements ScreenHandlerProvider<T> {
 
-public class AdvancedHandledScreen<T extends ScreenHandler> extends HandledScreen<T> {
+    public final AdvancedScreenHandler screenHandler;
 
     public AdvancedHandledScreen(T handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.screenHandler = (AdvancedScreenHandler) handler;
+    }
+
+    @Override
+    public T getScreenHandler() {
+        return this.handler;
     }
 
     private static final Identifier CONTAINER_TEXTURE = new Identifier(MeosLib.MOD_ID, "textures/gui/slot_container.png");
@@ -32,22 +38,23 @@ public class AdvancedHandledScreen<T extends ScreenHandler> extends HandledScree
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(CONTAINER_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        renderSlots(context);
     }
 
     public void renderSlots(DrawContext context) {
-        handler.slots.forEach(slot -> {
-            RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-            RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-            RenderSystem.setShaderTexture(0, SLOT_TEXTURE);
+        screenHandler.blockSlots.forEach(slot -> {
+            int x = (width - backgroundWidth) / 2 + slot.x;
+            int y = (height - backgroundHeight) / 2 + slot.y;
 
-            context.drawTexture(SLOT_TEXTURE, slot.x, slot.y, 0, 0, 18, 18);
+            RenderSystem.setShaderTexture(0, SLOT_TEXTURE);
+            TextureRenderer.renderTexture(context.getMatrices(), x - 1, y - 1, 18, 18);
         });
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         drawBackground(context, delta, mouseX, mouseY);
-        renderSlots(context);
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
     }

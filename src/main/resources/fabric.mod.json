@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "meoslib",
 	"version": "${version}",
-	"name": "MeosLib",
+	"name": "Meo's Library",
 	"description": "Library mod for all of meos mods.",
 	"authors": [
 		"meo209"
