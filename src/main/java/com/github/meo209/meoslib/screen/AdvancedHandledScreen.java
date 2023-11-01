@@ -1,8 +1,8 @@
-package io.github.meo209.meoslib.screen;
+package com.github.meo209.meoslib.screen;
 
+import com.github.meo209.meoslib.MeosLib;
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.meo209.meoslib.MeosLib;
-import io.github.meo209.meoslib.utils.TextureRenderer;
+import com.github.meo209.meoslib.utils.TextureRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.ScreenHandlerProvider;

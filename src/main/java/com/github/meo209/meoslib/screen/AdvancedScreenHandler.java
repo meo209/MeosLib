@@ -1,4 +1,4 @@
-package io.github.meo209.meoslib.screen;
+package com.github.meo209.meoslib.screen;
 
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

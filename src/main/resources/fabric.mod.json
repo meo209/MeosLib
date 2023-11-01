@@ -15,10 +15,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.meo209.meoslib.MeosLib"
+			"com.github.meo209.meoslib.MeosLib"
 		],
 		"fabric-datagen": [
-			"io.github.meo209.meoslib.MeosLibDataGenerator"
+			"com.github.meo209.meoslib.MeosLibDataGenerator"
 		]
 	},
 	"mixins": [

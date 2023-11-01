@@ -1,4 +1,4 @@
-package io.github.meo209.meoslib.utils;
+package com.github.meo209.meoslib.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.*;

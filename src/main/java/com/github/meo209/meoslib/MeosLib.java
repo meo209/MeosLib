@@ -1,4 +1,4 @@
-package io.github.meo209.meoslib;
+package com.github.meo209.meoslib;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class MeosLib implements ModInitializer {
 
-	public static final String MOD_ID = "meoslib", VERSION = "0.1.1";
+	public static final String MOD_ID = "meoslib", VERSION = "0.1.3";
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

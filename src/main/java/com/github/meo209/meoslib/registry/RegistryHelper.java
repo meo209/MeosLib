@@ -1,4 +1,4 @@
-package io.github.meo209.meoslib.registry;
+package com.github.meo209.meoslib.registry;
 
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
