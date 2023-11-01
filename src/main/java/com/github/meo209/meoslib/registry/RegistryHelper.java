@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 
 public class RegistryHelper {
 
-    public static String toRegistryName(String name) {
+    private static String toRegistryName(String name) {
         return name.replace(' ', '_').toUpperCase();
     }
 
@@ -23,7 +23,7 @@ public class RegistryHelper {
                 Registry<T> registry = getRegistry(modRegistry.value());
                 T object = (T) field.get(clazz);
 
-                if (!object.getClass().getName().equals(modRegistry.value().clazz.getName()))
+                if (!modRegistry.value().clazz.isInstance(object))
                     throw new RuntimeException("Cannot register a " + object.getClass().getName()
                             + " in " + modRegistry.value().name() + " registry.");
 

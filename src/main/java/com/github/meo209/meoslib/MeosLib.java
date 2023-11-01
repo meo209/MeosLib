@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class MeosLib implements ModInitializer {
 
-	public static final String MOD_ID = "meoslib", VERSION = "0.1.3";
+	public static final String MOD_ID = "meoslib", VERSION = "0.1.4";
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
